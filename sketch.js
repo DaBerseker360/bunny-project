@@ -54,7 +54,7 @@ function preload()
 }
 
 function setup() {
-  var isMobile=/iPhone|iPad|iPod|Android/i.test(navigater.userAgent)
+  var isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
   if(isMobile){
     canw=displayWidth
     canh=displayHeight
@@ -97,12 +97,12 @@ function setup() {
   rope = new Rope(7,{x:245,y:30});
   rope2 = new Rope(8,{x:40,y:30});
   rope3 = new Rope(5,{x:400,y:200});
-  ground = new Ground(200,690,600,20);
+  ground = new Ground(200,canh,600,20);
 
   blink.frameDelay = 20;
   eat.frameDelay = 20;
 
-  bunny = createSprite(130,620,100,100);
+  bunny = createSprite(170,canh-80,100,100);
   bunny.scale = 0.2;
 
   bunny.addAnimation('blinking',blink);
@@ -132,7 +132,7 @@ function setup() {
 function draw() 
 {
   background(51);
-  image(bg_img,0,0,490,690);
+  image(bg_img,0,0,displayWidth+80,displayHeight);
 
   push();
   imageMode(CENTER);
